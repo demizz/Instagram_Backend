@@ -6,11 +6,13 @@ dotenv.config({ path: './config.env' });
 const port = process.env.PORT || 3000;
 const DB = process.env.DATABASE.replace(
 	'<password>',
-	process.env.DATABASE_PASSWORd
+	process.env.DATABASE_PASSWORD
 );
+
 mongoose
 	.connect(DB, {
 		useCreateIndex: true,
+		useFindAndModify: true,
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
